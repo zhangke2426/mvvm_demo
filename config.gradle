@@ -1,0 +1,18 @@
+ext {
+    okhttp = "4.9.0"
+    retrofit = "2.9.0"
+
+    coil = "1.1.1"
+    netWorkDependencies = [
+            "retrofit"           : "com.squareup.retrofit2:retrofit:$retrofit",
+            "converter-gson"     : "com.squareup.retrofit2:converter-gson:$retrofit",
+            "converter-scalars"  : "com.squareup.retrofit2:converter-scalars:$retrofit",
+            "okhttp"             : "com.squareup.okhttp3:okhttp:$okhttp",
+            "logging-interceptor": "com.squareup.okhttp3:logging-interceptor:$okhttp",
+    ]
+
+    imageDependencies = [
+            "coil"             : "io.coil-kt:coil:$coil",
+    ]
+
+}
