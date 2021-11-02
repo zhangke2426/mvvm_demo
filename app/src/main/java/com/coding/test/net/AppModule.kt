@@ -3,6 +3,7 @@ package com.coding.test.net
 
 import android.util.Log
 import com.coding.test.model.remote.BlogService
+import com.coding.test.utils.Constant.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +23,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
-    private  val BASE_URL = "https://arcblockio.cn"
     private  val IMEOUT_MILLS = 20L
     @Provides
     fun provideBlogService(retrofit: Retrofit): BlogService = retrofit.create(BlogService::class.java)

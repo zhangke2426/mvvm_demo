@@ -15,15 +15,17 @@ import javax.inject.Inject
 class BlogViewModel @Inject constructor(private val repository: BlogRepository) :
     BaseViewModel() {
 
-    private val blogLiveData = MutableLiveData<List<Blog>>()
+    val blogLiveData = MutableLiveData<List<Blog>>()
 
     fun getPhotos() {
+        isLoading.postValue(true)
         launch({
-            blogLiveData.value =  repository.getBlogList()
+            blogLiveData.value = repository.getBlogList()
         }, {
             it.printStackTrace()
+            networkError.postValue(it)
         }, {
-
+            isLoading.postValue(false)
         })
     }
 

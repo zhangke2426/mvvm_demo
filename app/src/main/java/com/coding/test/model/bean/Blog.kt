@@ -6,11 +6,11 @@ package com.coding.test.model.bean
  */
 
 data class Blog(
-    val frontmatter: Frontmatter
+    val frontmatter: Frontmatter?
 )
 
 data class Frontmatter(
-    val banner: Banner,
+    val banner: Banner?,
     val categories: List<String>,
     val date: String,
     val language: String,
@@ -20,11 +20,11 @@ data class Frontmatter(
 )
 
 data class Banner(
-    val childImageSharp: ChildImageSharp
+    val childImageSharp: ChildImageSharp?
 )
 
 data class ChildImageSharp(
-    val fixed: Fixed
+    val fixed: Fixed?
 )
 
 data class Fixed(

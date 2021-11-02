@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="empty_img">
+        <item name="android:layout_width">@dimen/def_height</item>
+        <item name="android:layout_height">@dimen/def_height</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="WebViewProgressBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:progress">0</item>
+        <item name="android:paddingLeft">-2dp</item>
+        <item name="android:paddingRight">-2dp</item>
+    </style>
+</resources>
