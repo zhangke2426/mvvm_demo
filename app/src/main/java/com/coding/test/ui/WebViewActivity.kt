@@ -41,6 +41,15 @@ class WebViewActivity : AppCompatActivity() {
 
         handler = InnerHandler()
         binding.webView.webChromeClient = mBridgeWebChromeClient
+
+    }
+
+    override fun onBackPressed() {
+        if (mWebView?.canGoBack() == true) {
+            mWebView?.goBack()
+        } else {
+            super.onBackPressed()
+        }
     }
 
     class InnerHandler : Handler() {
@@ -50,7 +59,7 @@ class WebViewActivity : AppCompatActivity() {
     private var mBridgeWebChromeClient: BridgeWebChromeClient = object : BridgeWebChromeClient() {
 
         override fun onReceivedTitle(view: WebView, title: String) {
-
+            Log.d(myTag,"title $title")
         }
 
         override fun onProgressChanged(view: WebView, newProgress: Int) {

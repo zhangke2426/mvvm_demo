@@ -2,12 +2,13 @@ package com.coding.test.ui.widget
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
-import com.coding.test.ui.widget.CommonWebView.InnerWebViewClient
+
 import android.webkit.WebSettings
 import android.webkit.WebViewClient
-import android.widget.LinearLayout
-import com.coding.test.ui.widget.CommonWebView
+
 
 /**
  * @Author zhangke
@@ -38,7 +39,17 @@ class CommonWebView @JvmOverloads constructor(
         webSettings.setAppCachePath(appCacheDir)
     }
 
-    private inner class InnerWebViewClient : WebViewClient()
+    private inner class InnerWebViewClient : WebViewClient(){
+        override fun shouldOverrideUrlLoading(
+            view: WebView?,
+            request: WebResourceRequest?
+        ): Boolean {
+            url?.let {
+                Log.d("UrlLoading", it)
+            }
+            return super.shouldOverrideUrlLoading(view, request)
+        }
+    }
     companion object {
         private val TAG = CommonWebView::class.java.simpleName
     }
