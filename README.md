@@ -53,12 +53,10 @@ implementation "androidx.activity:activity-ktx:1.1.0"
 ```java
 private val blogViewModel by viewModels<BlogViewModel>()
 ```
-4. 继承BaseViewModel
+4. 继承BaseViewModel，BaseViewModel通过LiveData来处理常用UI刷新
 ```java
-class BlogViewModel : BaseViewModel() 
+class BlogViewModel :BaseViewModel() {}
 ```
-
-BaseViewModel通过LiveData来处理常用UI刷新
 
 5. 数据绑定
 在BlogViewModel中定义
