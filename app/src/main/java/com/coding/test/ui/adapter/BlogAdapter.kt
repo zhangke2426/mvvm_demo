@@ -1,5 +1,6 @@
 package com.coding.test.ui.adapter
 
+import android.view.View
 import android.widget.ImageView
 import coil.load
 import coil.transform.CircleCropTransformation
@@ -20,12 +21,17 @@ class BlogAdapter : BaseQuickAdapter<Blog, BaseViewHolder>(R.layout.item_blog) {
         item.frontmatter?.let {data->
             holder.setText(R.id.title,data.title)
             holder.setText(R.id.date,data.date)
-            data.banner?.childImageSharp?.fixed?.src.let {src->
-                holder.getView<ImageView>(R.id.banner).load(BASE_URL+src)
+            var imageUrl = data.banner?.childImageSharp?.fixed?.src
+            if (imageUrl.isNullOrEmpty()){
+                holder.getView<ImageView>(R.id.banner).visibility = View.GONE
+            }else{
+                holder.getView<ImageView>(R.id.banner).visibility = View.VISIBLE
+                holder.getView<ImageView>(R.id.banner).load(BASE_URL+imageUrl){
+                    placeholder(R.mipmap.empty_icon).error(R.mipmap.empty_icon)
+                }
             }
 
         }
-
     }
 
 }

@@ -28,7 +28,7 @@ data class ChildImageSharp(
 )
 
 data class Fixed(
-    val src: String
+    val src: String?
 )
 
 
