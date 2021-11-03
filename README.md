@@ -12,8 +12,12 @@
     AndroidStudio 2020.3.1
     Gradle 7.0.2
 ## 简介
-
-- 整体项目采用mvvm模式
+整体项目采用mvvm模式, 采用的开源库包括：
+* Retrofit
+* OKHttp
+* coil
+* hilt
+* BaseRecyclerViewAdapterHelper
 
 ## 1、准备工作
 1. 启用viewinding
